@@ -65,7 +65,10 @@ class SlideMenuController: UIViewController {
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+        if gesture.direction == UISwipeGestureRecognizer.Direction.right && !isLeft{
+            performSlide()
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.left && isLeft {
             performSlide()
         }
     }
