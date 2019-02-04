@@ -26,6 +26,25 @@ class MainViewController: UIViewController {
         view.addSubview(homeView.view)
         homeView.view.frame.origin = CGPoint(x: 0, y: 0)
         self.homeView.view.frame.size = CGSize(width: self.view.frame.width, height: self.view.frame.height)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+            performLeft()
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+            if isLeft {
+                performLeft()
+            }
+        }
     }
     
     @objc func performLeft() {

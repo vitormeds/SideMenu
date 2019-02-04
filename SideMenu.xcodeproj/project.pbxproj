@@ -19,6 +19,7 @@
 		F427BFB4220864710049C4E3 /* LeftBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BFAE220864710049C4E3 /* LeftBar.swift */; };
 		F427BFB5220864710049C4E3 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BFAF220864710049C4E3 /* CustomTabBarController.swift */; };
 		F427BFB6220864710049C4E3 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BFB0220864710049C4E3 /* ConfigViewController.swift */; };
+		F427BFB8220865380049C4E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BFB7220865380049C4E3 /* MenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F427BFAE220864710049C4E3 /* LeftBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftBar.swift; sourceTree = "<group>"; };
 		F427BFAF220864710049C4E3 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		F427BFB0220864710049C4E3 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		F427BFB7220865380049C4E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				F427BFAE220864710049C4E3 /* LeftBar.swift */,
 				F427BFAB220864710049C4E3 /* LeftMenuViewController.swift */,
 				F427BFAC220864710049C4E3 /* MainViewController.swift */,
+				F427BFB7220865380049C4E3 /* MenuCell.swift */,
 				F427BF84220863CA0049C4E3 /* Assets.xcassets */,
 				F427BF86220863CA0049C4E3 /* LaunchScreen.storyboard */,
 				F427BF89220863CA0049C4E3 /* Info.plist */,
@@ -272,6 +275,7 @@
 			files = (
 				F427BFB3220864710049C4E3 /* HomeViewController.swift in Sources */,
 				F427BFB5220864710049C4E3 /* CustomTabBarController.swift in Sources */,
+				F427BFB8220865380049C4E3 /* MenuCell.swift in Sources */,
 				F427BFB6220864710049C4E3 /* ConfigViewController.swift in Sources */,
 				F427BF83220863C70049C4E3 /* SideMenu.xcdatamodeld in Sources */,
 				F427BF7B220863C70049C4E3 /* AppDelegate.swift in Sources */,
