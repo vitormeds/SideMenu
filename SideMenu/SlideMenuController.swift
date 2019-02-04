@@ -13,22 +13,22 @@ class SlideMenuController: UIViewController {
     var isLeft = false
     var leftBar = UIViewController()
     var homeView = UIViewController()
-    var sizeLeftBar = 100
+    var sizeLeftBar = 0
     
-    init(barViewController:UIViewController, mainViewController:UIViewController, sizeLeftBar: Int? = 100)
+    init(barViewController:UIViewController, mainViewController:UIViewController)
     {
         super.init(nibName: nil, bundle: nil)
-        self.sizeLeftBar = sizeLeftBar!
+        self.sizeLeftBar = Int((view.frame.width * 80) / 100)
         leftBar = barViewController
         homeView = mainViewController
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func setupViews() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .done, target: self, action: #selector(performLeft))
         self.addChild(leftBar)
         view.addSubview(leftBar.view)
@@ -46,7 +46,6 @@ class SlideMenuController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
-        
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -63,12 +62,12 @@ class SlideMenuController: UIViewController {
     @objc func performLeft() {
         if !isLeft {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-                self.navigationController?.navigationBar.frame.origin.x = 100
-                self.tabBarController?.tabBar.frame.origin.x = 100
+                self.navigationController?.navigationBar.frame.origin.x = CGFloat(self.sizeLeftBar)
+                self.tabBarController?.tabBar.frame.origin.x = CGFloat(self.sizeLeftBar)
                 self.leftBar.view.frame.origin = CGPoint(x: 0, y: 0)
-                self.leftBar.view.frame.size = CGSize(width: 100, height: self.view.frame.height)
-                self.homeView.view.frame.origin = CGPoint(x: 100, y: 0)
-                self.homeView.view.frame.size = CGSize(width: self.view.frame.width - 100, height: self.view.frame.height)
+                self.leftBar.view.frame.size = CGSize(width: CGFloat(self.sizeLeftBar), height: self.view.frame.height)
+                self.homeView.view.frame.origin = CGPoint(x: CGFloat(self.sizeLeftBar), y: 0)
+                self.homeView.view.frame.size = CGSize(width: self.view.frame.width - CGFloat(self.sizeLeftBar), height: self.view.frame.height)
             })
         }
         else {
