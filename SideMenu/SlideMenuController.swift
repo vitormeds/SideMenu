@@ -31,6 +31,12 @@ class SlideMenuController: UIViewController {
         setupViews()
     }
     
+    override func viewDidLoad() {
+        if isLeft {
+            performSlide()
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -48,14 +54,14 @@ class SlideMenuController: UIViewController {
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
+        self.homeView.view.addGestureRecognizer(swipeRight)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
-        self.view.addGestureRecognizer(swipeLeft)
+        self.homeView.view.addGestureRecognizer(swipeLeft)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
-        self.view.addGestureRecognizer(tap)
+        self.homeView.view.addGestureRecognizer(tap)
     }
     
     @objc func tapGesture(gesture: UITapGestureRecognizer) -> Void {
