@@ -11,14 +11,26 @@ import UIKit
 class MainViewController: UIViewController {
 
     var isLeft = false
+    var leftBar = UIViewController()
+    var homeView = UIViewController()
+    var sizeLeftBar = 100
     
-    var leftBar = LeftBar()
-    var homeView = HomeViewController()
+    init(barViewController:UIViewController, mainViewController:UIViewController, sizeLeftBar: Int? = 100)
+    {
+        super.init(nibName: nil, bundle: nil)
+        self.sizeLeftBar = sizeLeftBar!
+        leftBar = barViewController
+        homeView = mainViewController
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .done, target: self, action: #selector(performLeft))
-        addChild(leftBar)
+        self.addChild(leftBar)
         view.addSubview(leftBar.view)
         leftBar.view.frame.origin = CGPoint(x: 0, y: 0)
         self.leftBar.view.frame.size = CGSize(width: 0, height: self.view.frame.height)
@@ -34,6 +46,7 @@ class MainViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
+        
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
