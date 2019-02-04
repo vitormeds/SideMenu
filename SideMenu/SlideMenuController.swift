@@ -14,6 +14,13 @@ class SlideMenuController: UIViewController {
     var leftBar = UIViewController()
     var homeView = UIViewController()
     var sizeLeftBar = 0
+    let shadowView: UIView = {
+        let shadowView = UIView()
+        shadowView.isUserInteractionEnabled = false
+        shadowView.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+        shadowView.translatesAutoresizingMaskIntoConstraints = false
+        return shadowView
+    }()
     
     init(barViewController:UIViewController, mainViewController:UIViewController)
     {
@@ -61,23 +68,26 @@ class SlideMenuController: UIViewController {
     
     @objc func performLeft() {
         if !isLeft {
+            UIApplication.shared.keyWindow!.addSubview(self.shadowView)
+            self.shadowView.frame.origin = CGPoint(x: CGFloat(self.sizeLeftBar), y: 0)
+            self.shadowView.frame.size = CGSize(width: self.view.frame.width, height: self.view.frame.height)
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.navigationController?.navigationBar.frame.origin.x = CGFloat(self.sizeLeftBar)
                 self.tabBarController?.tabBar.frame.origin.x = CGFloat(self.sizeLeftBar)
                 self.leftBar.view.frame.origin = CGPoint(x: 0, y: 0)
                 self.leftBar.view.frame.size = CGSize(width: CGFloat(self.sizeLeftBar), height: self.view.frame.height)
                 self.homeView.view.frame.origin = CGPoint(x: CGFloat(self.sizeLeftBar), y: 0)
-                self.homeView.view.frame.size = CGSize(width: self.view.frame.width - CGFloat(self.sizeLeftBar), height: self.view.frame.height)
+                self.shadowView.frame.size = CGSize(width: self.view.frame.width - CGFloat(self.sizeLeftBar), height: self.view.frame.height)
             })
         }
         else {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.shadowView.removeFromSuperview()
                 self.navigationController?.navigationBar.frame.origin.x = 0
                 self.tabBarController?.tabBar.frame.origin.x = 0
                 self.leftBar.view.frame.origin = CGPoint(x: 0, y: 0)
                 self.leftBar.view.frame.size = CGSize(width: 0, height: self.view.frame.height)
                 self.homeView.view.frame.origin = CGPoint(x: 0, y: 0)
-                self.homeView.view.frame.size = CGSize(width: self.view.frame.width, height: self.view.frame.height)
             })
         }
         isLeft = !isLeft

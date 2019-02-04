@@ -11,6 +11,6 @@ import UIKit
 class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = UIColor.white
     }
 }
