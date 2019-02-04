@@ -53,6 +53,15 @@ class SlideMenuController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapGesture(gesture: UITapGestureRecognizer) -> Void {
+        if isLeft {
+            performLeft()
+        }
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -60,9 +69,7 @@ class SlideMenuController: UIViewController {
             performLeft()
         }
         else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
-            if isLeft {
-                performLeft()
-            }
+            performLeft()
         }
     }
     
