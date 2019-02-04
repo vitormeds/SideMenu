@@ -11,7 +11,7 @@ import UIKit
 class CustomTabBarController: UITabBarController{
     override func viewDidLoad() {
         
-        let mainViewController = MainViewController(barViewController: LeftBar(), mainViewController: HomeViewController())
+        let mainViewController = SlideMenuController(barViewController: LeftBar(), mainViewController: HomeViewController())
         let mainViewNavigationController = UINavigationController(rootViewController: mainViewController)
         mainViewNavigationController.title = "Inicio"
         

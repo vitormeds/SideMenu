@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class SlideMenuController: UIViewController {
 
     var isLeft = false
     var leftBar = UIViewController()
