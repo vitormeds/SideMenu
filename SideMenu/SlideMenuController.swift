@@ -36,7 +36,7 @@ class SlideMenuController: UIViewController {
     }
     
     func setupViews() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .done, target: self, action: #selector(performLeft))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .done, target: self, action: #selector(performSlide))
         self.addChild(leftBar)
         view.addSubview(leftBar.view)
         leftBar.view.frame.origin = CGPoint(x: 0, y: 0)
@@ -60,20 +60,17 @@ class SlideMenuController: UIViewController {
     
     @objc func tapGesture(gesture: UITapGestureRecognizer) -> Void {
         if isLeft {
-            performLeft()
+            performSlide()
         }
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizer.Direction.right {
-            performLeft()
-        }
-        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
-            performLeft()
+            performSlide()
         }
     }
     
-    @objc func performLeft() {
+    @objc func performSlide() {
         if !isLeft {
             UIApplication.shared.keyWindow!.addSubview(self.shadowView)
             self.shadowView.frame.origin = CGPoint(x: CGFloat(self.sizeLeftBar), y: 0)
