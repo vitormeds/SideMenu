@@ -10,12 +10,20 @@ import UIKit
 
 class MenuCell: UITableViewCell {
 
+    let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Mario")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.left
         label.font = UIFont.systemFont(ofSize: 18)
         label.textColor = UIColor.black
         label.numberOfLines = 0
+        label.text = "Menu"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -27,12 +35,17 @@ class MenuCell: UITableViewCell {
     
     func setupViews()
     {
-        titleLabel.text = "adjsvhskdl;dkj;dlfjbklsdsjfskla;fjkl;fsljklfsslkfskslgdklfjlkfdjjkdlflklfjkl"
+        addSubview(iconImageView)
+        iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
+        iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
+        
         addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 4).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -4).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
     }
     
     required public init?(coder aDecoder: NSCoder) {
