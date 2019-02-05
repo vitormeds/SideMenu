@@ -18,6 +18,6 @@ class HomeViewController: SlideMenuController {
     }
     
     @objc func goToView(gesture: UITapGestureRecognizer) -> Void {
-        present(TestViewController(), animated: true)
+        present(BlueViewController(), animated: true)
     }
 }

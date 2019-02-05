@@ -1,5 +1,5 @@
 //
-//  TestViewController.swift
+//  RedViewController.swift
 //  SideMenu
 //
 //  Created by Vitor Mendes on 05/02/19.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TestViewController : SlideMenuController {
+class RedViewController : UIViewController {
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = UIColor.red
         let tap = UITapGestureRecognizer(target: self, action: #selector(back))
         tap.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(tap)

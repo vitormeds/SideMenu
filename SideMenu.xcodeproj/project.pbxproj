@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F4230BE12209A590008B50E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4230BE02209A590008B50E6 /* TestViewController.swift */; };
+		F4230BE12209A590008B50E6 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4230BE02209A590008B50E6 /* BlueViewController.swift */; };
 		F4230BE32209A917008B50E6 /* LeftBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4230BE22209A917008B50E6 /* LeftBarConfig.swift */; };
+		F4230BE72209C056008B50E6 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4230BE62209C056008B50E6 /* RedViewController.swift */; };
 		F427BF7B220863C70049C4E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BF7A220863C70049C4E3 /* AppDelegate.swift */; };
 		F427BF83220863C70049C4E3 /* SideMenu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F427BF81220863C70049C4E3 /* SideMenu.xcdatamodeld */; };
 		F427BF85220863CA0049C4E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F427BF84220863CA0049C4E3 /* Assets.xcassets */; };
@@ -41,8 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F4230BE02209A590008B50E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		F4230BE02209A590008B50E6 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		F4230BE22209A917008B50E6 /* LeftBarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBarConfig.swift; sourceTree = "<group>"; };
+		F4230BE62209C056008B50E6 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		F427BF77220863C70049C4E3 /* SideMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F427BF7A220863C70049C4E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F427BF82220863C70049C4E3 /* SideMenu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SideMenu.xcdatamodel; sourceTree = "<group>"; };
@@ -104,7 +106,8 @@
 				F427BFB0220864710049C4E3 /* ConfigViewController.swift */,
 				F427BFAE220864710049C4E3 /* LeftBar.swift */,
 				F4230BE22209A917008B50E6 /* LeftBarConfig.swift */,
-				F4230BE02209A590008B50E6 /* TestViewController.swift */,
+				F4230BE02209A590008B50E6 /* BlueViewController.swift */,
+				F4230BE62209C056008B50E6 /* RedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -315,8 +318,9 @@
 				F427BFB6220864710049C4E3 /* ConfigViewController.swift in Sources */,
 				F427BF83220863C70049C4E3 /* SideMenu.xcdatamodeld in Sources */,
 				F427BF7B220863C70049C4E3 /* AppDelegate.swift in Sources */,
+				F4230BE72209C056008B50E6 /* RedViewController.swift in Sources */,
 				F427BFB4220864710049C4E3 /* LeftBar.swift in Sources */,
-				F4230BE12209A590008B50E6 /* TestViewController.swift in Sources */,
+				F4230BE12209A590008B50E6 /* BlueViewController.swift in Sources */,
 				F427BFB2220864710049C4E3 /* SlideMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
