@@ -10,5 +10,10 @@ import UIKit
 
 class LeftBar: UITableViewController {
 
+    func presentToViewController(viewController: UIViewController) {
+        let parentViewController = (parent as! SlideMenuController)
+        parentViewController.performSlide()
+        present(viewController, animated: true)
+    }
     
 }
