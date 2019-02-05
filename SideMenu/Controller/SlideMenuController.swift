@@ -11,7 +11,7 @@ import UIKit
 class SlideMenuController: UIViewController {
 
     var isLeft = false
-    var leftBar = UIViewController()
+    var leftBar = LeftBar()
     var sizeLeftBar = 0
     let shadowView: UIView = {
         let shadowView = UIView()
@@ -21,10 +21,15 @@ class SlideMenuController: UIViewController {
         return shadowView
     }()
     
-    func inicializeDrawer(barViewController:UIViewController) {
+    init()
+    {
+        super.init(nibName: nil, bundle: nil)
         self.sizeLeftBar = Int((view.frame.width * 80) / 100)
-        leftBar = barViewController
         setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupViews() {
