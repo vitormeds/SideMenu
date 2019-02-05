@@ -33,7 +33,6 @@ class SlideMenuController: UIViewController {
     }
     
     func setupViews() {
-        view.backgroundColor = UIColor.white
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .done, target: self, action: #selector(performSlide))
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right

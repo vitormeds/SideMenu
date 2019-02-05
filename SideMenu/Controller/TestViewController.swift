@@ -11,7 +11,7 @@ import UIKit
 class TestViewController : SlideMenuController {
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.blue
         let tap = UITapGestureRecognizer(target: self, action: #selector(back))
         tap.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(tap)
