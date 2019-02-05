@@ -8,9 +8,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: SlideMenuController {
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.white
+        inicializeDrawer(barViewController: LeftBar())
     }
 }

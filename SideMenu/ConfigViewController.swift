@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ConfigViewController: UIViewController {
+class ConfigViewController: SlideMenuController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        inicializeDrawer(barViewController: LeftBar())
     }
     
 }
