@@ -8,16 +8,9 @@
 
 import UIKit
 
-class BlueViewController : UIViewController {
+class BlueViewController : SlideMenuController {
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.blue
-        let tap = UITapGestureRecognizer(target: self, action: #selector(back))
-        tap.numberOfTapsRequired = 2
-        self.view.addGestureRecognizer(tap)
-    }
-    
-    @objc func back(gesture: UITapGestureRecognizer) -> Void {
-        dismiss(animated: true)
     }
 }

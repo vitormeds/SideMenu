@@ -17,18 +17,28 @@ extension LeftBar {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        optionsViewControllers = [BlueViewController(),RedViewController()]
+        optionsViewControllers = [HomeViewController(),BlueViewController(),RedViewController()]
         tableView.register(MenuCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) as! MenuCell
-        cell.titleLabel.text = indexPath.row == 0 ? "Blue":"Red"
-        return cell
+        if indexPath.row == 0 {
+            cell.titleLabel.text = "Home"
+            return cell
+        }
+        else if indexPath.row == 1 {
+            cell.titleLabel.text = "Blue"
+            return cell
+        }
+        else {
+            cell.titleLabel.text = "Red"
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
