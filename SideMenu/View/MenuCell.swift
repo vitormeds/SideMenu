@@ -38,8 +38,8 @@ class MenuCell: UITableViewCell {
         addSubview(iconImageView)
         iconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16).isActive = true
         iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        iconImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
         
         addSubview(titleLabel)

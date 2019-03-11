@@ -22,6 +22,7 @@
 		F427BFB5220864710049C4E3 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BFAF220864710049C4E3 /* CustomTabBarController.swift */; };
 		F427BFB6220864710049C4E3 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BFB0220864710049C4E3 /* ConfigViewController.swift */; };
 		F427BFB8220865380049C4E3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427BFB7220865380049C4E3 /* MenuCell.swift */; };
+		F43E093E2236981800C43324 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43E093D2236981800C43324 /* MenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F427BFAF220864710049C4E3 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		F427BFB0220864710049C4E3 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		F427BFB7220865380049C4E3 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		F43E093D2236981800C43324 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				F427BFB0220864710049C4E3 /* ConfigViewController.swift */,
 				F4230BE02209A590008B50E6 /* BlueViewController.swift */,
 				F4230BE62209C056008B50E6 /* RedViewController.swift */,
+				F43E093D2236981800C43324 /* MenuTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				F427BF83220863C70049C4E3 /* SideMenu.xcdatamodeld in Sources */,
 				F427BF7B220863C70049C4E3 /* AppDelegate.swift in Sources */,
 				F4230BE72209C056008B50E6 /* RedViewController.swift in Sources */,
+				F43E093E2236981800C43324 /* MenuTableViewController.swift in Sources */,
 				F427BFB4220864710049C4E3 /* LeftBar.swift in Sources */,
 				F4230BE12209A590008B50E6 /* BlueViewController.swift in Sources */,
 				F427BFB2220864710049C4E3 /* SlideMenuController.swift in Sources */,

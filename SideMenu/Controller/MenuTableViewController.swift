@@ -1,43 +1,70 @@
 //
-//  LeftBarConfig.swift
+//  MenuTableViewController.swift
 //  SideMenu
 //
-//  Created by Vitor Mendes on 05/02/19.
+//  Created by Vitor Mendes on 11/03/19.
 //  Copyright © 2019 Vitor Mendes. All rights reserved.
 //
 
 import UIKit
 
+class MenuTableViewController: UIViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.backgroundColor = UIColor.primary
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.barTintColor = UIColor.primary
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        }
+    }
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.alwaysBounceVertical = true
+        tableView.alwaysBounceHorizontal = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    var optionsViewControllers = [UIViewController]()
+    var selected: Int!
+    
+    func presentToViewController(viewController: Int) {
+        let parentViewController = (parent as! SlideMenuController)
+        parentViewController.performSlide()
+        self.navigationController!.pushViewController(optionsViewControllers[viewController], animated: true)
+    }
+    
+}
+
 fileprivate let reuseIdentifier = "Cell"
 
-extension LeftBar : UITableViewDelegate,UITableViewDataSource{
+extension MenuTableViewController : UITableViewDelegate,UITableViewDataSource{
     
     
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.white
+        title = "Menus"
         optionsViewControllers = [HomeViewController(),BlueViewController(),RedViewController(),HomeViewController(),BlueViewController(),RedViewController(),HomeViewController(),BlueViewController(),RedViewController(),HomeViewController(),BlueViewController(),RedViewController(),HomeViewController(),BlueViewController(),RedViewController(),HomeViewController(),BlueViewController()]
         tableView.register(MenuCell.self, forCellReuseIdentifier: reuseIdentifier)
         setupTableView()
     }
     
     func setupTableView() {
-        
-        view.addSubview(headerView)
-        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        headerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        headerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        headerView.backgroundColor = UIColor.primary
-        
-        headerView.addSubview(imageView)
-        imageView.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 16).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        
         view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

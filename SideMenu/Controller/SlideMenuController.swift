@@ -33,7 +33,7 @@ class SlideMenuController: UIViewController {
     }
     
     func setupViews() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .done, target: self, action: #selector(performSlide))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "imgTable"), style: UIBarButtonItem.Style.done, target: self, action: #selector(performSlide))
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
@@ -63,13 +63,14 @@ class SlideMenuController: UIViewController {
     
     @objc func performSlide() {
         if !isLeft {
+            leftBar.setupTableView()
             UIApplication.shared.keyWindow!.addSubview(self.leftBar.view)
             self.addChild(leftBar)
             UIApplication.shared.keyWindow!.addSubview(self.shadowView)
-            self.shadowView.frame.origin = CGPoint(x: CGFloat(self.sizeLeftBar), y: 0)
+            self.shadowView.frame.origin = CGPoint(x: CGFloat(self.sizeLeftBar), y: 14)
             self.shadowView.frame.size = CGSize(width: self.view.frame.width, height: self.view.frame.height)
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-                self.leftBar.view.frame.origin = CGPoint(x: 0, y: 0)
+                self.leftBar.view.frame.origin = CGPoint(x: 0, y: 14)
                 self.leftBar.view.frame.size = CGSize(width: CGFloat(self.sizeLeftBar), height: self.view.frame.height)
                 self.shadowView.frame.size = CGSize(width: self.view.frame.width - CGFloat(self.sizeLeftBar), height: self.view.frame.height)
             })
@@ -77,8 +78,11 @@ class SlideMenuController: UIViewController {
         else {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.shadowView.removeFromSuperview()
-                self.leftBar.view.frame.origin = CGPoint(x: 0, y: 0)
+                self.leftBar.view.frame.origin = CGPoint(x: 0, y: 14)
                 self.leftBar.view.frame.size = CGSize(width: 0, height: self.view.frame.height)
+                self.leftBar.headerView.removeFromSuperview()
+                self.leftBar.tableView.removeFromSuperview()
+                self.leftBar.imageView.removeFromSuperview()
             })
         }
         isLeft = !isLeft
