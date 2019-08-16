@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FAPanels
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = CustomTabBarController()
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let leftMenuVC: LeftMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "LeftMenuVC") as! LeftMenuVC
+        
+        let centerVC: BlueVC = mainStoryboard.instantiateViewController(withIdentifier: "blue") as! BlueVC
+        let centerNavVC = UINavigationController(rootViewController: centerVC)
+        
+        let rootController: FAPanelController = window?.rootViewController as! FAPanelController
+        rootController.center(centerNavVC).left(leftMenuVC)
+        
         return true
     }
 
